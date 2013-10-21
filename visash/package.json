@@ -1,8 +1,8 @@
 {
-  "name": "ash_web_server",
+  "name": "visash",
   "version": "0.1.0",
-  "description": "ash_web_server",
-  "main": "hello-world-server.js",
+  "description": "visash",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified! Configure in package.json\" && exit 1"
   },
@@ -14,7 +14,7 @@
   ],
   "author": "",
   "license": "BSD",
-  "readmeFilename": "README.md"
+  "readmeFilename": "README.md",
   "dependencies": {
     "express": ">= 3.0.0",
     "log4js" : ">=0.6.8"
