@@ -1,0 +1,112 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+ <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Flot Examples</title>
+    <link href="layout.css" rel="stylesheet" type="text/css">
+    <link href="jquery.ui.timepicker.css" rel="stylesheet" type="text/css">
+    <link href="css/jquery-ui-1.10.3.custom.css" rel="stylesheet" type="text/css">
+    <!--[if lte IE 8]><script language="javascript" type="text/javascript" src="/js/excanvas.min.js"></script><![endif]-->
+    <script language="javascript" type="text/javascript" src="jquery-1.6.2.js"></script>
+    <script language="javascript" type="text/javascript" src="jquery.flot.js"></script>
+    <script language="javascript" type="text/javascript" src="jquery.flot.stack.js"></script>
+    <script language="javascript" type="text/javascript" src="jquery.flot.selection.js"></script>
+	<script language="javascript" type="text/javascript" src="jquery.flot.time.js"></script>
+	<script language="javascript" type="text/javascript" src="aasdata.js"></script> 
+	<script language="javascript" type="text/javascript" src="aas.js"></script> 
+	<script language="javascript" type="text/javascript" src="ui.js"></script> 
+	<script language="javascript" type="text/javascript" src="sashdisp.js"></script>
+    <script language="javascript" type="text/javascript" src="topsql.js"></script> 
+    <script language="javascript" type="text/javascript" src="jquery-ui-1.10.3.custom.min.js"></script> 
+    <script language="javascript" type="text/javascript" src="jquery.ui.timepicker.js"></script> 
+<style>
+
+
+</style>
+
+
+
+ </head>
+
+<body>
+    <h3>SASH Viewer</h3>
+    <a href="#" class="button" id="comp" style="width:100px; float:left;">Compare</a>
+        <!-- Javascript DropDown menu    style="display: none; width:800px; margin:0 auto; color: #D8000C; background-color: #FFBABA; border:2px solid black; z-index:50 -->
+    <div id="dialog-overlay"></div>   
+    <div id="dialog-box">
+    	<div class="dialog-content">
+           <div id="dialog-message"></div>
+           <a href="#" onclick="location.reload();" class="button">Try again</a>
+        </div>
+    </div> 
+     
+    <div id="---" style="clear: both; height: 50px;"></div>    
+    
+    
+
+    <div id="---" style="clear: both;"></div>
+    
+<!--    
+    <input type="text" style="width: 70px; position:absolute; left:1000px" id='timepicker' name='timepicker' />
+    <script>
+    $('#timepicker').timepicker( { atPosition: 'right top', myPosition: 'left botton',  showPeriodLabels: false });
+    </script>
+    </div>  
+-->
+    </div>
+           <div>
+            <div id="AAS1" style="width:1000px; height:200px; float: left;"></div>
+		    <div id="legend" style="width:120px;height:200px; position: absolute; left: 1000px;"></div>
+
+    		<div id="controls" style="width:130px;height:200px; position: absolute; left: 1120px; ">
+		    	<label style="float: left;" class="descstyle">Select instance :</label>
+		    	<select id="grupe_AAS1"  onchange="instchange('AAS1')" style="float: left;">
+		        	<option value="">Awaiting data...</option>
+		    	</select>
+		    	<div id="---" style="clear: both; height: 20px;"></div>
+		    	<div style="float: left;" class="descstyle">Auto refresh
+	    			<input type="checkbox" id="refresh_AAS1" value="refresh"  checked="checked"></input>
+    			</div>
+			</div>
+           </div>
+        <form action="" id="ash_params_aas1" method="post">
+            <input type="hidden" name="sample_time_AAS1" id="sample_time_AAS1" value="0" />
+            <input type="hidden" name="sample_time_AAS2" id="sample_time_AAS2" value="0" />
+        </form>
+<br>
+       <div id="---" style="clear: both; height: 50px;"></div>
+
+           <div>
+            <div id="AAS2" style="width:1000px;height:200px;float: left;"></div>
+		    <div id="AAS2_controls" style="position: absolute; left: 1120px;">
+			    <label style="float: left;">Select</label>
+			    <select id="grupe_AAS2"  onchange="instchange('AAS2')" style="float: left;">
+			        <option value="">Awaiting data...</option>
+			    </select>
+			    <div style="float: left;">Auto refresh
+	    			<input type="checkbox" id="refresh_AAS2" value="refresh"></input>
+	    		</div>
+		    </div>
+
+           </div>
+          <form action="" id="ash_params_aas2" method="post">
+         </form>
+
+
+	   <div style="clear: both">TOP SQL</div>
+	   <div class="container" style="width: 100%;">
+	   	   <div id="topsql 1 container" style="float: left;"> 
+		    <div id="AAS1_topsql" style="width:300px;height:200px;"></div>
+			<div id="AAS1_topstats" class="descstyle"></div>		   
+		   </div>
+		   <div id="topsql 2 container" style="margin-left: 700px;"> 
+		   	<div id="AAS2_topsql" style="width:300px;height:200px;"></div>
+		    <div id="AAS2_topstats" class="descstyle"></div>
+		   </div>   	
+	   </div>
+	   
+
+ 
+ </body> 
+</html>
