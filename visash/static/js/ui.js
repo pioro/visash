@@ -1,3 +1,5 @@
+var single_view = true;
+
 function hideshowall() {
   $("div#AAS2").toggle(); 
   $("div#AAS2_topsql").toggle(); 

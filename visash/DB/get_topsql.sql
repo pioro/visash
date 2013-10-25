@@ -59,7 +59,7 @@ from (
  count(*) cnt,
  sum(count(*)) over () totalsum
  from v$active_session_history
- where sample_time > sysdate - 5/60/24 and sql_id is not null
+ where sample_time > sysdate - 1/60/24 and sql_id is not null
  group by sql_id,
           decode(session_state,'WAITING',wait_class,'ON CPU')
  order by sql_id

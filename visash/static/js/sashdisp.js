@@ -83,8 +83,10 @@ $(document).ready(function() {
 		       if ($("div#AAS2").is(":hidden")) {
 		          hideshowall();
 		          aas_instance.refresh("AAS2");
+		          $("a#comp").text("Single view");
 		       } else {
 		          hideshowall();
+		          $("a#comp").text("Compare view");
 		       }
 		   });
         

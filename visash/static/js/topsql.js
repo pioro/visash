@@ -4,17 +4,18 @@ function runtopsql_scheduler(chartname, topsql_instance) {
 	}
 	setTimeout(function() {
 		runtopsql_scheduler(chartname, topsql_instance);
-	}, 15000);
+	}, 60000);
 }
+
+var topsqlsarr = new Array();
 
 function topsql_class() {
 
-	this.topsqlsarr = new Array();
+
 
 	this.getdata = function getdata(topsqlpoints) {
 		name = topsqlpoints.getname();
-		var inst_id = "";
-		var dbid = "";
+
 
 		if (typeof sash_targets[$('#grupe').val()] != 'undefined') {
 			inst_id = sash_targets[$('#grupe').val()].INST_ID;
@@ -49,18 +50,33 @@ function topsql_class() {
 			},
 			cache : true
 		});
-	}
+	};
 
 	//function runtopsql(name) {
 	this.refresh = function(name) {
-		var graphl = this.topsqlsarr[name].chart;
-		var points = this.topsqlsarr[name].data;
+		var graphl = topsqlsarr[name].chart;
+		var points = topsqlsarr[name].data;
 
 		points.reset();
 
 		this.getdata(points);
 
+		ysize = points.getsize();
+		
 		newoptions = graphl.getOptions();
+        (newoptions['yaxes'])[0].min = -ysize;
+        (newoptions['yaxes'])[0].max = 0.5;
+        (newoptions['yaxes'])[0].tickFormatter = function(v, axis) {
+			v = -v;
+			if (points.getsql(v) == null) {
+				retstr = '';
+			} else {
+				retstr = "<div style='margin-right: 10px; text-align: left'>"
+						+ points.getsql(v)
+						+ "</div>";
+			}
+			return retstr;
+		};
 
 		graphset = points.getpoints();
 		graphl.setData(graphset);
@@ -166,7 +182,7 @@ function topsql_class() {
 							}
 						});
 
-		this.topsqlsarr[name] = topsqlgraph;
+		topsqlsarr[name] = topsqlgraph;
 
 	};
 

@@ -116,16 +116,18 @@ this.addtopsql = function ( ltopsql ) {
    this.reset();
    temppoint = this;
    $.each( ltopsql , function ( sqlid, values ) {
-        temppoint.topsql.data.push( values.SQL_ID );
-        i = 0 - $.inArray(values.SQL_ID,  temppoint.topsql.data );
-        temppoint.cpudata.data.push ([ values.CPU, i ]);
-        temppoint.useriodata.data.push ([ values.USERIO, i ]);
-        temppoint.systemiodata.data.push ([ values.SYSTEMIO, i ]);
-        temppoint.concurdata.data.push ([ values.CONCURRENCY, i ]);
-        temppoint.applicationdata.data.push ([ values.APPLICATION, i ]);
-        temppoint.commitdata.data.push ([ values.COMMIT, i ]);
-        temppoint.clusterdata.data.push ([values.CLUSTER, i ]);
-        temppoint.networkdata.data.push ([ values.NETWORK, i ]);
+	   if (typeof values.SQL_ID != 'undefined') {
+	        temppoint.topsql.data.push( values.SQL_ID );
+	        i = 0 - $.inArray(values.SQL_ID,  temppoint.topsql.data );
+	        temppoint.cpudata.data.push ([ values.CPU, i ]);
+	        temppoint.useriodata.data.push ([ values.USERIO, i ]);
+	        temppoint.systemiodata.data.push ([ values.SYSTEMIO, i ]);
+	        temppoint.concurdata.data.push ([ values.CONCURRENCY, i ]);
+	        temppoint.applicationdata.data.push ([ values.APPLICATION, i ]);
+	        temppoint.commitdata.data.push ([ values.COMMIT, i ]);
+	        temppoint.clusterdata.data.push ([values.CLUSTER, i ]);
+	        temppoint.networkdata.data.push ([ values.NETWORK, i ]);
+	   }
    });
   
 };
